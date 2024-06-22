@@ -1,0 +1,47 @@
+/* addjobs.css */
+.addcus-container{
+.addjobs-container {
+    border: 2px solid black;
+    border-radius: 20px; 
+    padding: 50px; 
+    margin: auto;
+    width: 70%; 
+    background-color: lightgray;
+    font-family: Arial;
+    font-size: 18px; 
+  }
+  
+  h2 {
+    font-size: 40px;
+    text-align: center;
+    font-family: 'Times New Roman';  
+    text-decoration: underline; 
+    margin-bottom: 20px;
+  }
+  
+  .addjobs-label {
+    font-size: 25px;
+  }
+  
+  .addjobs-input {
+    margin-bottom: 15px; 
+    padding: 12px; 
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    width: calc(100% - 24px); 
+  }
+  
+  #button1 {
+    font-size: larger;
+    background-color: hsl(122, 39%, 49%);
+    color: white;
+    padding: 12px 24px; 
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+  }
+  
+  #button1:hover {
+    background-color: #3b8a3f;
+  }
+}

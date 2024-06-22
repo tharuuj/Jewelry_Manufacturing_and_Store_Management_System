@@ -1,0 +1,42 @@
+
+.job-container {
+  border: 2px solid black;
+  border-radius: 10px;
+  padding: 20px;
+  margin: auto;
+  width: 70%;
+  background-color: rgb(202, 236, 211);
+  font-family: Arial;
+}
+
+h1{
+  font-size: 25px;
+  font-family: Arial, Helvetica, sans-serif;
+  
+}
+
+.job-attribute {
+  font-size: 15px;
+  margin-left: 0;
+}
+
+.job-button {
+  background-color: red;
+  border-radius: 5px;
+  color: white;
+  padding: 2px;
+  border: none;
+  cursor: pointer;
+  font-size: 15px;
+}
+
+.job-update-button {
+  background-color: rgb(67, 84, 236);
+  border-radius: 10px;
+  color: rgb(255, 255, 255);
+  padding: 10px;
+  margin-right: 10px;
+  border: none;
+  cursor: pointer;
+  font-size: 25px;
+}

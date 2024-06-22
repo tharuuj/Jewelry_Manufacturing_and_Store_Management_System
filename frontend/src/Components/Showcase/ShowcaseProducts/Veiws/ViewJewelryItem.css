@@ -1,0 +1,126 @@
+.modal-dialog {
+    max-width: 95%; 
+    
+    max-height: 90%;
+
+}
+
+.modal-dialog .modal-content {
+    background-color: rgba(255, 255, 255, 0.5);
+    backdrop-filter: blur(15px);
+    
+    box-shadow: rgba(0, 0, 0, 0.19) 0px 10px 20px, rgba(0, 0, 0, 0.23) 0px 6px 6px;
+    
+    
+ 
+ 
+}
+.modal-dialog .modal-header{
+border: 0;
+}
+.modal-dialog .modal-body{
+    overflow-x: hidden;
+    overflow-y: hidden;
+    height:660px;
+  
+
+}
+
+
+.twenty-one {
+    background: #fff;
+    color: royalblue;
+    border: 2px solid royalblue;
+    text-transform: uppercase;
+    position: relative;
+    z-index: 1;
+    transition: color 400ms;
+}
+
+
+
+
+
+
+
+.button-66  {
+  background-color: #f2ad35;
+  border-radius: 4px;
+  border: 0;
+  box-shadow: rgba(221, 195, 5, 0.5) 0 -1px 3px 0 inset,rgba(73, 77, 15, 0.1) 0 3px 6px 0;
+  box-sizing: border-box;
+  color: #332802;
+  cursor: pointer;
+  display: inherit;
+  font-family: "Space Grotesk",-apple-system,system-ui,"Segoe UI",Roboto,Helvetica,Arial,sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol";
+  font-size: 22px;
+  font-weight: 700;
+  line-height: 24px;
+  margin: 0;
+  height: 60px;
+  width: 350px;
+  padding: 16px 20px;
+  position: relative;
+  text-align: center;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+  vertical-align: baseline;
+  transition: all .2s cubic-bezier(.22, .61, .36, 1);
+  margin: 10px;
+}
+
+.button-66:hover {
+  background-color: #fcf11b;
+  transform: translateY(-2px);
+}
+.button-66.cart:hover{
+    background-color: #f24235;
+}
+
+.button-66.wishlist:hover{
+    background-color: #7fe000;
+}
+
+
+
+@media (min-width: 768px) {
+  .button-66 {
+    padding: 16px 44px;
+    min-width: 150px;
+  }
+}
+
+.button-66 i{
+
+    float: left;
+  font-size: 26px;
+}
+
+
+.close {
+    position: absolute;
+    right: 32px;
+    top: 32px;
+    width: 32px;
+    height: 32px;
+    opacity: 0.3;
+  }
+  .close:hover {
+    opacity: 1;
+  }
+  .close:before, .close:after {
+    position: absolute;
+    left: 15px;
+    content: ' ';
+    height: 33px;
+    width: 2px;
+    background-color: #333;
+  }
+  .close:before {
+    transform: rotate(45deg);
+  }
+  .close:after {
+    transform: rotate(-45deg);
+  }
+  

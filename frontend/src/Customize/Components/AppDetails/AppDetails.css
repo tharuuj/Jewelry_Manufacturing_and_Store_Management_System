@@ -1,0 +1,40 @@
+.app-details-container {
+    text-align: center;
+  }
+  
+  .search-container {
+    margin-bottom: 20px;
+  }
+  
+  .search-input {
+    border-radius: 8px;
+    padding: 10px;
+    margin-right: 10px;
+    cursor: pointer;
+  }
+  
+  .search-button {
+    background-color: dimgrey;
+    border-radius: 8px;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    cursor: pointer;
+  }
+  
+  .download-button {
+    background-color: green;
+    border-radius: 8px;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    cursor: pointer;
+    display: block;
+    margin: 0 auto;
+    margin-top: 20px;
+  }
+  
+  .company-address {
+    margin-bottom: 10px;
+  }
+  

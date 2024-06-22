@@ -1,0 +1,93 @@
+/* homeattendance.css */
+
+.home-attendance-container {
+    /* Style the search and add button section */
+    .search_add {
+        margin-top: 10px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center; /* Align items vertically in the center */
+
+        /* Search input */
+        .search {
+            width: 20%; /* Adjust width as needed */
+            display: flex;
+
+            /* Search button */
+            .search_btn {
+                margin-left: 5px;
+            }
+        }
+
+        /* Filter by date */
+        .filter_date {
+            width: 10%; /* Adjust width as needed */
+            display: flex;
+            justify-content: center; /* Center the content */
+        }
+
+        /* Sort details */
+        .filter_newold {
+            width: 10%; /* Adjust width as needed */
+            display: flex;
+            justify-content: center; /* Center the content */
+        }
+
+        /* Add button */
+        .add_btn {
+            width: 20%; /* Adjust width as needed */
+            display: flex;
+            justify-content: flex-end;
+
+            /* Style the add button */
+            button {
+                display: flex;
+                align-items: center;
+                background-color: #209ba4; /* Green background color */
+                border-color: #1b979b; /* Green border color */
+                color: #fff; /* White text color */
+                padding: 5px 10px; /* Padding */
+                border-radius: 5px; /* Rounded corners */
+
+                /* Icon styles */
+                i {
+                    margin-right: 5px;
+                }
+
+                /* Hover styles */
+                &:hover {
+                    background-color: #1f9aa5; /* Darker green on hover */
+                    border-color: #1e797e; /* Darker green border color on hover */
+                }
+            }
+        }
+    }
+
+    /* Style the filter section */
+    .filter_div {
+        margin-top: 30px;
+        display: flex;
+        justify-content: space-between;
+        flex-wrap: wrap;
+
+        /* Sort by value section */
+        .filter_newold {
+            width: 20%;
+
+            /* Style the sort dropdown */
+            .dropdown_btn {
+                background-color: #007bff;
+                border-color: #007bff;
+
+                i {
+                    color: #3949b0;
+                }
+
+                &:hover {
+                    background-color: #0056b3;
+                    border-color: #0042a2;
+                }
+            }
+        }
+    }
+}

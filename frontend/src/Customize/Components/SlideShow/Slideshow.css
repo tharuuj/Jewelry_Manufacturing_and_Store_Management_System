@@ -1,0 +1,28 @@
+.slideshow{ .slideshow-container {
+    position: relative;
+  }
+  
+  button {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background: none;
+    border: none;
+    cursor: pointer;
+  }
+  
+  button:nth-child(1) {
+    left: 10px;
+  }
+  
+  button:nth-child(2) {
+    right: 10px;
+  }
+  
+  img {
+    width: 100%;
+    height: auto;
+    display: block;
+    margin: 0 auto;
+  }
+}

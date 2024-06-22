@@ -1,0 +1,30 @@
+/* table.css */
+
+
+  
+  /* Modify table header styles */
+  .AttTable .table-darke th {
+    background-color: #262160; /* Change header background color */
+    color: #ffffff; /* Change header text color */
+  }
+  
+  /* Modify table row styles */
+  .AttTable .table tbody tr {
+    background-color: #f8f9fa; /* Change row background color */
+  }
+  
+  /* Modify table cell (td) styles */
+  .AttTable .table tbody td {
+    padding: 8px; /* Adjust cell padding */
+  }
+  
+  /* Style the action dropdown button */
+  .AttTable .action {
+    background-color: transparent;
+    border: none;
+  }
+  
+  
+  
+  /* Add any additional custom styles as needed */
+  

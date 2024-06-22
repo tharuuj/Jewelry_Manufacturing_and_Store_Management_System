@@ -1,0 +1,16 @@
+.AdminContent{
+    position: fixed; 
+    top: 0%;
+    overflow-y: auto;
+    height: 100%; 
+    width: calc(100% - 18em); 
+    left: 18em; 
+padding: 12px;
+}
+.AdminRight{
+    overflow: hidden;
+    height: 100vh;
+    position: fixed;
+   
+ 
+}

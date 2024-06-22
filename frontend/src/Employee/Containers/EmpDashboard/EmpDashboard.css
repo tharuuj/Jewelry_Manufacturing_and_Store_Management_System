@@ -1,0 +1,106 @@
+.dashboard-heading {
+  font-size: 24px;
+  font-weight: bold;
+  margin-bottom: 20px;
+  font-family:Georgia, 'Times New Roman', Times, serif;
+  color: #247ede;
+}
+
+.dashboard-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 20px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.employee-card,
+.chart-card {
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.employee-card {
+  background-color: #dedcd6; /* Yellow background */
+  padding: 20px;
+  width: 25%; /* Adjusted width */
+  height: 100px; /* Adjusted height */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.chart-card {
+  background-color: #e0e0e0; /* Light gray background */
+  padding: 20px;
+  flex-basis: 70%; /* Adjusted width */
+}
+
+.employee-strip {
+  width: 100%;
+  height: 5px; /* Adjusted height */
+  background-color: #6ca4e0; /* Blue color */
+}
+
+.employee-info {
+  display: flex;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+.employee-count {
+  font-size: 40px; /* Adjusted font size */
+  margin-top: 10px; /* Added margin */
+  
+}
+
+.label {
+  font-size: 16px;
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+
+.chart-container {
+  margin-top: 20px;
+  height: 400px; /* Increased height */
+}
+.employee-card {
+  background-color: #dedcd6; /* Yellow background */
+  padding: 20px;
+  width: 25%; /* Adjusted width */
+  height: 200px; /* Adjusted height */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: relative; /* Set position relative */
+}
+
+.employee-strip {
+  width: 10px; /* Adjusted width */
+  height: 100%; /* Full height */
+  background-color: #6ca4e0; /* Blue color */
+  position:absolute; /* Position it relative to the .employee-card */
+  left: 0; /* Align it to the left */
+}
+
+.employee-info {
+  display: flex;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+.employee-count {
+  font-size: 40px; /* Adjusted font size */
+  margin-top: 10px; /* Added margin */
+}
+
+.label {
+  font-size: 16px;
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+
+.chart-container {
+  margin-top: 20px;
+  height: 400px; /* Increased height */
+}

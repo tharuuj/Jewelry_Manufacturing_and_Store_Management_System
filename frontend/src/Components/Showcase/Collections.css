@@ -1,0 +1,64 @@
+.Collection .front{
+    width: 300px;
+    height: 300px;
+  
+		color:transparent;
+     font-size: 1.2 em;;
+     text-shadow: 4px 4px 20px rgb(23, 22, 22);
+     -webkit-text-stroke: 1px #ffffff;
+}
+.Collection .back{
+    background: rgb(9,38,121);
+background: linear-gradient(158deg, rgba(9,38,121,1) 1%, rgb(4, 5, 39) 55%, rgb(1, 14, 13) 100%);
+}
+.Collection .front .inner p{
+    font-size: 2em;
+    font-weight: 500;
+    z-index: 5;
+}
+
+.Collection .mask{
+    width: 300px;
+  
+    height: 300px;
+    position:relative;
+
+
+    background-size: cover;
+    background-position: center;
+    z-index: -2;
+    
+    border-radius: 10px;
+    background: rgb(9,38,121);
+    background: linear-gradient(158deg, rgba(9,38,121,1) 1%, rgb(40, 42, 150) 55%, rgb(17, 121, 239) 100%);
+    -webkit-transition: -webkit-transform .7s cubic-bezier(0.4, 0.2, 0.2, 1);
+    transition: -webkit-transform .7s cubic-bezier(0.4, 0.2, 0.2, 1);
+    -o-transition: transform .7s cubic-bezier(0.4, 0.2, 0.2, 1);
+    transition: transform .7s cubic-bezier(0.4, 0.2, 0.2, 1);
+    transition: transform .7s cubic-bezier(0.4, 0.2, 0.2, 1), -webkit-transform .7s cubic-bezier(0.4, 0.2, 0.2, 1);
+    -webkit-backface-visibility: hidden;
+    backface-visibility: hidden;
+    opacity: 0.6;
+   
+   
+}
+.Collection .product-grid3:before {
+    background: transparent;
+    opacity: 0;
+}
+
+.Collection .back{
+    width: 300px;
+    height: 300px;
+}
+
+.Collection .col-md-3{
+    margin: 10px;
+}
+.Collection .Itemcontainer{
+
+    padding: 20px;
+    margin-left: 100px;
+    margin-top: 60px;
+}
+

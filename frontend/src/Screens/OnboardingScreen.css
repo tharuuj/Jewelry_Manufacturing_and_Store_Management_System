@@ -1,0 +1,194 @@
+@import url('https://fonts.googleapis.com/css?family=Open+Sans:300,400,800');
+.login{
+ height: 100%;
+ width: 100%;
+  background-color: black;
+display: flex;
+}  
+
+
+.Inner1{
+  position: absolute;
+  top: 0px;
+  margin-left: 0%;
+  
+  z-index:3;
+  width: 50%;
+  height: 100%;
+ background: transparent;
+ font-size: 2em;
+ color: white;
+ font-family: 'Open Sans', sans-serif;
+ font-weight:300;
+ 
+  text-align: center;
+  
+
+
+}
+
+.Inner2{
+  position: absolute;
+  top: 0px;
+  margin-left: 50%;
+  
+  z-index:3;
+  width: 50%;
+  height: 100%;
+ background: transparent;
+ font-size: 2em;
+ color: white;
+ font-family: 'Open Sans', sans-serif;
+ font-weight:300;
+ 
+  text-align: center;
+  
+
+
+}
+.split {
+    background-size: 200%;
+    width: 50%;
+    height: 100vh;
+    font-size: 2em;
+    color: white;
+    font-family: 'Open Sans', sans-serif;
+    font-weight:300;
+   
+
+  }
+
+ #Admin {
+    background-color: black;
+    color: rgb(107, 255, 238);
+    opacity: .65;
+  }
+.design-section {
+    background-image: url("../Components/Accsesories/Images/login1.jpg");
+    background-position: center;
+    float: left;
+    background-size:cover;
+    opacity: 0.4;
+  }
+
+  .dev-section {
+    background-image: url("../Components/Accsesories/Images/login2.jpg");
+    background-color: black;
+    background-position: center;
+    float: right;
+    background-size: cover;
+
+  }
+  
+  #creative, #logic {
+    text-align: center;
+    margin-top: 200px;
+    font-size: 4em;
+  }
+  #creative {
+    font-family: 'Pacifico', monospace;
+    /*color: #c48cff;*/
+  }
+  #logic {
+    color: #79abff;
+    background-color: black;
+    font-family: 'Roboto Mono', monospace;
+  }
+  .amp {
+    position: absolute;
+    top: 150px;
+    margin-left: 43%;
+    font-size: 10em;
+    font-family: sans-serif;
+    z-index: 5;
+    width: 200px;
+    height: 200px;
+    background-color: rgb(255, 255, 255);
+    backdrop-filter: blur(46px);
+    border-radius: 50%;
+    text-align: center;
+    line-height: 200px;
+    box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
+    background-size: cover;
+  }
+
+  .logo{
+    position: relative;
+top: -13px;
+    object-fit: cover;
+    width: 200px;
+    height: 200px;
+  }
+
+
+  .LeftSpan {
+    position: relative;
+    top: 50%;
+    -webkit-transform: translateY(-50%);
+    -ms-transform: translateY(-50%);
+    transform: translateY(-50%);
+    text-align: center;
+    backdrop-filter: blur(3.2px);
+   z-index: 5;
+    height: 100%;
+    padding-top: 25%;
+    opacity: 1;
+  }
+  .LeftSpan .text-content {
+    line-height: 1.6em;
+    margin-bottom: 1em;
+    opacity: 1;
+    z-index: 15;
+  }
+  .LeftSpan.text-content .big {
+    font-size: 2em;
+  }
+  .LeftSpan img {
+    height: 1.3em;
+  }
+  @media (max-width: 500px) {
+    .LeftSpan div img {
+      display:none;
+    }
+  }
+  .LeftSpan button,   .LeftSpan a.button {
+    font-family: 'Open Sans', sans-serif;
+    font-weight:800;
+    background: none;
+    border: 1px solid white;
+    -moz-border-radius: 5px;
+    -webkit-border-radius: 5px;
+    border-radius: 5px;
+    width: 15em;
+    padding: 0.7em;
+    font-size: 0.5em;
+    -moz-transition: all 0.2s ease-out;
+    -o-transition: all 0.2s ease-out;
+    -webkit-transition: all 0.2s ease-out;
+    transition: all 0.2s ease-out;
+    text-decoration: none;
+    color: white;
+    display: inline-block;
+    cursor: pointer;
+  }
+  .LeftSpan button:hover,   .LeftSpan a.button:hover {
+    text-decoration: none;
+    background-color: white;
+    border-color: white;
+    cursor: pointer;
+    color: aquamarine;
+  }
+
+  .big {
+    font-size: 2em;
+    font-weight:800;
+    color: #f1f1f1;
+    text-shadow: 0px 4px 3px rgba(0,0,0,0.4),
+                 0px 8px 13px rgba(0,0,0,0.1),
+                 0px 18px 23px rgba(0,0,0,0.1);
+  }
+
+  .bold {
+    text-transform:uppercase;
+    color: white;
+  }

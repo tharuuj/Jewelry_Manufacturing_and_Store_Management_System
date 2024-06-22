@@ -1,0 +1,148 @@
+@import url('https://fonts.googleapis.com/css2?family=Oswald:wght@500&display=swap');
+*{
+   box-sizing:border-box;
+}
+.appcontainer{
+background-image: url('./appback2.jpg');
+background-position: center;
+height: 100%;
+width: 100%;
+position: absolute;
+background-size: cover;
+background-repeat: no-repeat;
+
+
+}
+.appcontainer .html, .appcontainer body{
+  margin:0;
+  padding:0;
+  background-color:#faf3dd;
+  font-family: 'Oswald', sans-serif;
+  letter-spacing:0.08rem;
+  font-size:18px;
+  line-height:25px;
+}
+.appcontainer body{
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  height:100vh;
+  color:rgba(100, 130, 136, 0);
+  overflow: hidden;
+
+  
+}
+.appcontainer .gap{
+  gap:1rem;
+}
+.appcontainer .container{
+  display:flex;
+  flex-direction:column;
+  justify-content:center;
+  align-items:center;
+  width:100%;
+  gap:3rem;
+  padding:2rem;
+  overflow: hidden;
+}
+.appcontainer .card-container{
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  width: 100%;
+  margin-left: 50px;
+  margin-top: 100px;
+}
+.appcontainer .card{
+    background-color: rgba(153, 216, 195, 0.7); /* Add transparency */
+    border-radius: 10px;
+    padding: 2rem;
+    box-shadow: 5px 5px 13px 0px #6e888b;
+    width: 500px;
+    backdrop-filter: blur(2px); /* Add blur effect */
+  }
+  
+.appcontainer input{
+ padding:0.4rem 0.8rem;
+  border-radius:9px;
+  border: 1px solid #233E31;
+}
+.appcontainer input:focus{
+   outline: none;
+}
+.appcontainer .form-item > input{
+  width:70%;
+}
+
+.appcontainer label{
+color:#090F0C;
+}
+.appcontainer .form-sub-items{
+  width:50%;
+}
+.appcontainer .form-sub-items input{
+  width:100%;
+}
+.appcontainer .form-sub-items label{
+  display: inline-block;
+  margin-bottom: 0.4rem;
+}
+
+.appcontainer .form-item{
+  display:flex;
+/*   gap:2rem; */
+  padding:0.5rem 0;
+  justify-content:space-between;
+}
+.appcontainer .btn{
+  padding:0.6rem 1.4rem;
+  border-radius:4px;
+  border:none;
+  background-color:#233E31;
+  color:white;
+  width:100%;
+  font-size:14px;
+  margin-top:1rem;
+}
+.appcontainer .text-container{
+  display:flex;
+  justify-content:center;
+  flex-direction:column;
+  gap:1.5rem;
+  padding:1rem;
+  width:100%;
+}
+.appcontainer .heading{
+  font-size:30px;
+}
+.appcontainer .description{
+  font-family:sans-serif;
+  font-size:16px;
+}
+
+
+@media (min-width:757px){
+  .appcontainer .container{
+  display:flex;
+  flex-direction:row;
+  justify-content:center;
+  align-items:center;
+  width:100%;
+  gap:3rem;
+  padding:8rem;
+}
+  .appcontainer .text-container{
+  display:flex;
+  gap:1.5rem;
+  padding:1rem;
+  width: 400px;
+  position: absolute;
+  top: 20%;
+  right: 10%;
+  color: #ffffff;
+
+}
+ .appcontainer .card-container{
+  width:50%;
+}
+}

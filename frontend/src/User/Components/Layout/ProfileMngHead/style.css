@@ -1,0 +1,25 @@
+.custom-navbar {
+    background-color: black; /* Set the background color of the navbar to black */
+    color: white; /* Set the text color of the navbar to white */
+   
+  }
+  
+  .custom-navbar .nav-link {
+    color: white !important;
+     /* Set the text color of the links to white */
+  }
+  
+  .custom-brand {
+    color: white; /* Set the text color of the brand to white */
+  }
+  .header{
+    background-color: black;
+    
+  }
+  .bg-dark{
+    background-color: black;
+  }
+  .nav-item{
+    font-size: 20px;
+    color:  white;
+  }

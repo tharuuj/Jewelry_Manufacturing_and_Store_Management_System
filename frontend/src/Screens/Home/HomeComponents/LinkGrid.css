@@ -1,0 +1,147 @@
+.LinkGrid {
+    padding: 10px;
+  }
+  
+  .LinkGrid .container-box {
+    display: grid;
+    grid-gap: 10px;
+    grid-template-columns: auto;
+    grid-template-rows: 400px 279px;
+    grid-template-areas:
+      'a b b c '
+      'a d e e'
+      'a d e e'
+      'a d e e'
+    ;
+    
+  }
+  
+  /* @media() */
+  
+  .LinkGrid .box {
+  
+    border-radius: 5px;
+    overflow: hidden;
+   min-width: max-content;
+   background-color: aqua;
+   cursor: pointer;
+ 
+    
+
+  }
+  .box_inner{
+    padding-left: 30px;
+  
+  opacity: 0.6;
+
+    margin: 0px;
+    position: relative;
+    height: 100%;
+    width:100%;
+align-items: center;
+justify-content: center; 
+  
+    text-align: center;
+    &:hover
+   {
+      opacity: 1;
+ 
+  
+     
+    }
+  }
+
+.box .text-content{
+
+position: relative;
+top: 40%;
+font-size: 40px;
+width: 80px;
+
+  }
+  .LinkGrid .a {
+    grid-area: a;
+    background-image: url("./images-Home/Slider/gold-necklace-earrings-red-background-with-bokeh.jpg");
+    object-fit: fill;
+    object-position: center;
+    background-size: cover;
+  }
+
+
+  .LinkGrid .box {
+    transition: transform .5s;
+  
+    &::after {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      transition: opacity 2s cubic-bezier(.165, .84, .44, 1);
+      box-shadow: 0 8px 17px 0 rgba(0, 0, 0, .2), 0 6px 20px 0 rgba(0, 0, 0, .15);
+      content: '';
+      opacity: 0;
+      z-index: -1;
+    }
+
+  
+    &:hover,
+    &:focus {
+      transform: scale3d(1.03, 1.03, 1);
+  
+      &::after {
+        opacity: 1;
+      }
+    }
+  }
+    .LinkGrid .box .big{
+
+      font-size: 2.5em;
+    }
+  
+  .LinkGrid .b {
+    grid-area: b;
+    background-image: url("./images-Home/Slider/shiny-gold-necklace-with-gemstone-drop-pendant-generated-by-ai.jpg");
+    object-fit: fill;
+    object-position: center;
+    background-size: cover;
+  }
+  
+  .LinkGrid .c {
+    grid-area: c;
+    background-image: url("./images-Home/Slider/shiny-metal-jewelry-collection-gift-elegance-generated-by-ai.jpg");
+    object-fit: fill;
+    object-position: center;
+    background-size: cover;
+  }
+  
+  .LinkGrid .d {
+    grid-area: d;
+    background-image: url("./images-Home/Slider/vecteezy_ai-generated-top-view-close-up-engagement-diamond-ring-on_40751305.jpg");
+    object-fit: fill;
+    object-position: center;
+    background-size: cover;
+  }
+  
+ .LinkGrid .e {
+    grid-area: e;
+    background-image: url("./images-Home/Slider/precious-gems-luxury-transparent-stones-abundance-generated-by-ai.jpg");
+    object-fit: fill;
+    object-position: center;
+    background-size: cover;
+  }
+  
+ .LinkGrid .f {
+    grid-area: f;
+  }
+  
+ .LinkGrid .g {
+    grid-area: g;
+  }
+  
+  .LinkGrid .h {
+    grid-area: h;
+  }
+  .LinkGrid .box .big{
+    font-size: 40px;
+  }

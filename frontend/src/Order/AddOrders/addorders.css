@@ -1,0 +1,127 @@
+@import url('https://fonts.googleapis.com/css2?family=Oswald:wght@500&display=swap');
+* {
+   box-sizing:border-box;
+}
+
+.usercontainer .html, .usercontainer body {
+    margin:0;
+    padding:0;
+    background-color:#faf3dd;
+    font-family: 'Oswald', sans-serif;
+    letter-spacing:0.08rem;
+    font-size:18px;
+    line-height:25px;
+}
+.usercontainer body {
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    height:100vh;
+    color:rgba(100, 130, 136, 0);
+    overflow: hidden;
+}
+.usercontainer .gap {
+    gap:1rem;
+}
+.usercontainer .container {
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+    align-items:center;
+    width:100%;
+    gap:3rem;
+    padding:2rem;
+    overflow: hidden;
+}
+.usercontainer .card-container {
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    width: 900px;
+    margin-left: 300px;
+    margin-top: 100px;
+    margin-bottom: 100px;
+}
+.usercontainer .card {
+    background-color: rgba(210, 212, 212, 0.7); /* Add transparency */
+    border-radius: 10px;
+    padding: 2rem;
+    box-shadow: 5px 5px 13px 0px #737374;
+    width: 700px;
+    backdrop-filter: blur(2px); /* Add blur effect */
+}
+.usercontainer input {
+    padding:0.4rem 0.8rem;
+    border-radius:9px;
+    border: 1px solid #233E31;
+}
+.usercontainer input:focus {
+    outline: none;
+}
+.usercontainer .form-item > input {
+    width:70%;
+}
+.usercontainer label {
+    color:#090F0C;
+}
+.usercontainer .form-sub-items {
+    width:50%;
+}
+.usercontainer .form-sub-items input {
+    width:100%;
+}
+.usercontainer .form-sub-items label {
+    display: inline-block;
+    margin-bottom: 0.4rem;
+}
+.usercontainer .form-item {
+    display:flex;
+    padding:0.5rem 0;
+    justify-content:space-between;
+}
+.usercontainer .btn {
+    padding:0.6rem 1.4rem;
+    border-radius:4px;
+    border:none;
+    background-color:#233E31;
+    color:white;
+    width:100%;
+    font-size:14px;
+    margin-top:1rem;
+}
+.usercontainer .text-container {
+    display:flex;
+    justify-content:center;
+    flex-direction:column;
+    gap:1.5rem;
+    padding:1rem;
+    width:100%;
+}
+.usercontainer .heading {
+    font-size:30px;
+}
+.usercontainer .description {
+    font-family:sans-serif;
+    font-size:16px;
+}
+
+@media (min-width:757px) {
+    .usercontainer .container {
+        display:flex;
+        flex-direction:row;
+        justify-content:center;
+        align-items:center;
+        width:100%;
+        gap:3rem;
+        padding:8rem;
+    }
+
+    .usercontainer .card-container {
+        width:50%;
+    }
+
+    .usercontainer .head {
+      font-size: 48px;
+      margin-left: 450px;
+    }
+}

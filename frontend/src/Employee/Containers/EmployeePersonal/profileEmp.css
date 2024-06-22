@@ -1,0 +1,56 @@
+.container {
+    max-width: 2200px;
+    margin: auto;
+    padding: 10px;
+    /*background-image: url('C:\Users\Tharu\OneDrive - Sri Lanka Institute of Information Technology\My projects\Mern stack\Test\client\public\flower2.jpg'); /* Replace 'your-image-path.jpg' with the path to your background image 
+  background-size: cover; 
+  background-position: center;
+  */ 
+  }
+  
+  .card-profile {
+    box-shadow: 0 5px 9px rgba(123, 175, 202, 0.1);
+  }
+  .card-profile {
+  .employee-profile {
+    background-color: #3498db;
+    padding: 10px;
+    color: #fff;
+  }
+  
+  .profile-photo img {
+    max-width: 120px;
+    border-radius: 50%;
+    border: 2px solid #8dcbe2;
+    margin-top: 15px;
+  }
+  
+  .personal-info,
+  .employment-info {
+    margin-top: 25px;
+  }
+  
+  h4 {
+    color: #3498db;
+    margin-bottom: 15px;
+  }
+  
+  table {
+    width: 100%;
+    border-collapse: collapse;
+  }
+  
+  table, th, td {
+    border: 1px solid #3498db;
+  }
+  
+  th, td {
+    padding: 12px;
+    text-align: left;
+  }
+  
+  th {
+    background-color: #3498db;
+    color: #fff;
+  }
+}

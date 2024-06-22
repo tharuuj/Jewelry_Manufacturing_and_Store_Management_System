@@ -1,0 +1,289 @@
+.ProfileManagement .dashboard {
+    display: flex;
+    height: 100vh;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-color:#ffffff;
+    background-size: cover;
+    background-position: center; 
+  }
+  
+  .ProfileManagement .sidebar {
+    width: 250px;
+    background-color: #000000;
+    color: #c20000;
+  }
+  
+  .ProfileManagement .sidebar ul {
+    list-style-type: none;
+    padding: 0;
+  }
+  
+  .ProfileManagement .sidebar ul li {
+    padding: 10px;
+  }
+  
+  .ProfileManagement .sidebar ul li button {
+    width: 100%;
+    padding: 10px;
+    border: none;
+    background-color: #000000;
+    color: #ffffff;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    font-family: 'Times New Roman';
+    font-size: 20px;
+    text-align: left;
+  }
+  
+  .ProfileManagement .sidebar ul li button:hover {
+    background-color: #0b0128;
+  }
+  
+  .ProfileManagement .container {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    
+    
+  }
+  
+  .ProfileManagement .customer-details {
+    background-color: rgba(255, 255, 255, 0.015);
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(255, 255, 255, 0.3);
+    width: 100%;
+    max-width: 550px;
+    max-height: 800%;
+    height: 500px;
+    text-align: justify;
+    font-family: 'Times New Roman';
+    font-size: 20px;
+    color: #000000;
+    margin-bottom: 50px;
+    width: 1000px;
+  }
+  
+  .ProfileManagement .row {
+    display: flex;
+    justify-content: space-between;
+  }
+  
+  .ProfileManagement .detail {
+    width: 48%; /* Adjust width as needed */
+    margin-bottom: 50px; 
+    text-align:justify;
+    height: 50px;
+    font-size: 20px;
+    color: #060606;
+
+  }
+  
+  .ProfileManagement .detail label {
+    font-weight: bold;
+    margin-right: 10px;
+    color: #060150;
+  }
+  
+  .ProfileManagement .detail input {
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    padding: 2px;
+    width:200px;
+  }
+  
+  .ProfileManagement h2{
+    text-align: center;
+  }
+  .ProfileManagement .editButton,
+  .saveButton {
+   
+    margin-left: auto;
+    margin-right: 215px;
+    display: block;
+    background-color: #04004c; /* Dark gray background for edit button */
+    color: #fff; /* White text color */
+    border: none;
+    padding: 5px 10px;
+    cursor: pointer;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+    align-items: center;
+  }
+  
+  .ProfileManagement .editButton:hover,
+  .saveButton:hover {
+    background-color: #000b2c; /* Darker gray hover color */
+  }
+  
+  /* Add these styles to your style.css file */
+  
+  .ProfileManagement .deleteButton {
+    background-color: #cd2525;
+    color: #fff;
+    padding: 5px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-right: 10px;
+  }
+  
+  .ProfileManagement .deleteButton:hover {
+    background-color: #a80909;
+  }
+  
+  .ProfileManagement .noButton {
+    background-color: #12941d;
+    color: #fff;
+    padding: 5px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  
+  .ProfileManagement .noButton:hover {
+    background-color: #0f7712;
+  }
+  .ProfileManagement p{
+    font-weight: bold;
+    color: #a80909;
+  }
+  .ProfileManagement p.name{
+    font-size: 25px;
+    color: rgb(255, 255, 255);
+    font-family: Times New Roman;
+  }
+  .ProfileManagement .header {
+    text-align: center;
+    background-color: #000000;
+    color: #ffffff;
+    padding: 10px 0;
+    font-size: 10px;
+    font-family: Times New Roman;
+    font-style: normal
+  }
+  .ProfileManagement .bigButtons {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+   
+  }
+  
+  .ProfileManagement .bigButtons button {
+    margin: 5px;
+    font-size: 16px; /* Adjusted font size */
+    border: none;
+    border-radius: 5px;
+    background-color: rgba(245, 245, 245, 0.7);
+    color: #0f0023;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    height: 100px;
+    width: 200px; 
+  }
+  
+  .ProfileManagement .bigButtons button:hover {
+    background-color: #ffe9b2;
+  }
+  
+  .ProfileManagement .buttonRow {
+    margin-top: 10px; 
+    margin-bottom: 10px;
+    display: flex;
+    justify-content: space-around; 
+  }
+  .ProfileManagement .buttonContainer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-left: 250px;
+  }
+  .ProfileManagement p.summary{
+    
+    text-align: center;
+    color: #030023;
+    font-size:25px;
+    font-family: Times New Roman;
+    margin-bottom: 300px;
+  }
+
+
+  .ProfileManagement .pdf{
+    background-color: #23b62f;
+    color: #fff;
+    padding: 5px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+   
+  }
+  .ProfileManagement .pdf:hover {
+    background-color: #004e0a;
+  }
+ 
+  .ProfileManagement .services-section {
+    background-color: #f8f9fa;
+    padding: 50px 0;
+  }
+  
+  .ProfileManagement .services-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin-right: 100px;
+  }
+  
+  .ProfileManagement .service {
+    width: 300px;
+    margin: 20px;
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease;
+   
+  }
+  
+  .ProfileManagement .service:hover {
+    transform: translateY(-5px);
+  }
+  
+  .ProfileManagement .service-image {
+    width: 100%;
+    border-radius: 5px;
+  }
+  
+  .ProfileManagement .service-details {
+    text-align: center;
+    color: #1829e7;
+  }
+  
+  .ProfileManagement .service-details h3 {
+    margin-top: 15px;
+    font-size: 20px;
+    color: #333;
+  }
+  
+  .ProfileManagement .service-details p {
+    color: #666;
+  }
+  .ProfileManagement .servicestitle{
+  font-size: 20px;
+  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+  color:#0b435c
+  }
+  .ProfileManagement p.p1{
+    
+    text-align: center;
+    color: #191268;
+    font-size:25px;
+    font-family: Times New Roman;
+  }
+.ProfileManagement .calendar-container{
+  margin-bottom: 300px;
+  margin-left: 300px;
+}
