@@ -1,0 +1,220 @@
+// Importing necessary libraries and models
+const MaterialoutModel = require("../../models/Inventory/MaterialoutModel");
+const MaterialModel = require("../../models/Inventory/MaterialModel");
+
+// Retrieve all materialouts
+const getAllMaterialouts = async (req, res, next) => {
+  let materialouts;
+  try {
+    materialouts = await MaterialoutModel.find();
+  } catch (err) {
+    console.log(err);
+    return res.status(500).json({ message: "Internal server error." });
+  }
+  // If no materialouts found
+  if (!materialouts) {
+    return res.status(404).json({ Message: "Materialout not found!" });
+  }
+  // Display all materialouts
+  return res.status(200).json({ materialouts });
+};
+
+// Add new materialouts
+const addMaterialouts = async (req, res, next) => {
+  const {
+    materialoutID,
+    JobId,
+    date,
+    gold,
+    silver,
+    pladium,
+    platinum,
+    thairuby,
+    burmeseruby,
+    bluesapphire,
+    blooddiamond,
+    regentdiamond,
+    description,
+  } = req.body;
+  let materialouts;
+  try {
+    // Create a new materialout document
+    const newMaterialout = new MaterialoutModel({
+      materialoutID,
+      JobId,
+      date,
+      gold,
+      silver,
+      pladium,
+      platinum,
+      thairuby,
+      burmeseruby,
+      bluesapphire,
+      blooddiamond,
+      regentdiamond,
+      description,
+    });
+
+    // Save the new materialout document
+    materialouts = await newMaterialout.save();
+
+    // Update quantities in the material model
+    const materialsToUpdate = [
+      { name: "Gold", quantity: -gold },
+      { name: "Silver", quantity: -silver },
+      { name: "Pladium", quantity: -pladium },
+      { name: "Platinum", quantity: -platinum },
+      { name: "Thai Ruby", quantity: -thairuby },
+      { name: "Burmese Ruby", quantity: -burmeseruby },
+      { name: "Blue Sapphire", quantity: -bluesapphire },
+      { name: "Blood Diamond", quantity: -blooddiamond },
+      { name: "Regent Diamond", quantity: -regentdiamond },
+    ];
+
+    // Loop through materialsToUpdate and update quantities
+    for (const material of materialsToUpdate) {
+      await MaterialModel.findOneAndUpdate(
+        { name: material.name },
+        { $inc: { quantity: material.quantity } }
+      );
+    }
+
+    res
+      .status(201)
+      .json({ message: "Materialout data added successfully.", materialouts });
+  } catch (error) {
+    console.error(error);
+    res.status(500).json({ message: "Internal server error." });
+  }
+};
+
+// Retrieve materialout by ID
+const getById = async (req, res, next) => {
+  const id = req.params.id;
+  let materialout;
+  try {
+    materialout = await MaterialoutModel.findById(id);
+  } catch (err) {
+    console.log(err);
+    return res.status(500).json({ message: "Internal server error." });
+  }
+  // If materialout not found
+  if (!materialout) {
+    return res.status(404).json({ message: "Materialout not found" });
+  }
+  return res.status(200).json({ materialout });
+};
+
+// Update materialout details
+const updateMaterialout = async (req, res, next) => {
+  const id = req.params.id;
+  const {
+    materialoutID,
+    JobId,
+    date,
+    gold,
+    silver,
+    pladium,
+    platinum,
+    thairuby,
+    burmeseruby,
+    bluesapphire,
+    blooddiamond,
+    regentdiamond,
+    description,
+  } = req.body;
+  let materialouts;
+  try {
+    // Find the existing materialout document
+    materialouts = await MaterialoutModel.findById(id);
+
+    // Calculate the difference in quantities
+    const diffGold = gold - materialouts.gold;
+    const diffSilver = silver - materialouts.silver;
+    const diffPladium = pladium - materialouts.pladium;
+    const diffPlatinum = platinum - materialouts.platinum;
+    const diffThaiRuby = thairuby - materialouts.thairuby;
+    const diffBurmeseRuby = burmeseruby - materialouts.burmeseruby;
+    const diffBlueSapphire = bluesapphire - materialouts.bluesapphire;
+    const diffBloodDiamond = blooddiamond - materialouts.blooddiamond;
+    const diffRegentDiamond = regentdiamond - materialouts.regentdiamond;
+
+    // Update the materialout document
+    materialouts = await MaterialoutModel.findByIdAndUpdate(
+      id,
+      {
+        materialoutID,
+        JobId,
+        date,
+        gold,
+        silver,
+        pladium,
+        platinum,
+        thairuby,
+        burmeseruby,
+        bluesapphire,
+        blooddiamond,
+        regentdiamond,
+        description,
+      },
+      { new: true }
+    );
+
+    // Update quantities in the material model
+    const materialsToUpdate = [
+      { name: "Gold", quantity: -diffGold },
+      { name: "Silver", quantity: -diffSilver },
+      { name: "Pladium", quantity: -diffPladium },
+      { name: "Platinum", quantity: -diffPlatinum },
+      { name: "Thai Ruby", quantity: -diffThaiRuby },
+      { name: "Burmese Ruby", quantity: -diffBurmeseRuby },
+      { name: "Blue Sapphire", quantity: -diffBlueSapphire },
+      { name: "Blood Diamond", quantity: -diffBloodDiamond },
+      { name: "Regent Diamond", quantity: -diffRegentDiamond },
+    ];
+
+    // Loop through materialsToUpdate and update quantities
+    for (const material of materialsToUpdate) {
+      await MaterialModel.findOneAndUpdate(
+        { name: material.name },
+        { $inc: { quantity: material.quantity } }
+      );
+    }
+
+    res
+      .status(200)
+      .json({
+        message: "Materialout data updated successfully.",
+        materialouts,
+      });
+  } catch (error) {
+    console.error(error);
+    res.status(500).json({ message: "Internal server error." });
+  }
+};
+
+// Delete materialout details
+const deleteMaterialout = async (req, res, next) => {
+  const id = req.params.id;
+  let materialout;
+  try {
+    materialout = await MaterialoutModel.findByIdAndDelete(id);
+  } catch (err) {
+    console.log(err);
+    return res.status(500).json({ message: "Internal server error." });
+  }
+  // If unable to delete materialout
+  if (!materialout) {
+    return res
+      .status(404)
+      .json({ message: "Unable to delete materialout details" });
+  }
+  return res.status(200).json({ materialout });
+};
+
+// Export functions
+exports.getAllMaterialouts = getAllMaterialouts;
+exports.addMaterialouts = addMaterialouts;
+exports.getById = getById;
+exports.updateMaterialout = updateMaterialout;
+exports.deleteMaterialout = deleteMaterialout;

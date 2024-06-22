@@ -1,0 +1,19 @@
+// Import required modules
+const express=require("express");
+const routerMO=express.Router();
+
+// Import Materialout Model
+const Materialout=require("../../models/Inventory/MaterialoutModel");
+
+// Import Materialout Controller
+const MaterialoutController=require("../../controllers/Inventory/MaterialoutControllers");
+
+// Define routes for materialouts
+routerMO.get("/",MaterialoutController.getAllMaterialouts);
+routerMO.post("/",MaterialoutController.addMaterialouts);
+routerMO.get("/:id",MaterialoutController.getById);
+routerMO.put("/:id",MaterialoutController.updateMaterialout);
+routerMO.delete("/:id",MaterialoutController.deleteMaterialout);
+
+// Export routerMO
+module.exports=routerMO;

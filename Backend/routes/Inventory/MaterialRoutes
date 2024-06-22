@@ -1,0 +1,19 @@
+// Import required modules
+const express = require("express");
+const routerM = express.Router();
+
+// Import Material Model
+const Material = require("../../models/Inventory/MaterialModel");
+
+// Import Material Controller
+const MaterialController = require("../../controllers/Inventory/MaterialControllers");
+
+// Define routes for materials
+routerM.get("/", MaterialController.getAllMaterials);
+routerM.post("/", MaterialController.addMaterials);
+routerM.get("/:id", MaterialController.getById);
+routerM.put("/:id", MaterialController.updateMaterial);
+routerM.delete("/:id", MaterialController.deleteMaterial);
+
+// Export routerM
+module.exports = routerM;

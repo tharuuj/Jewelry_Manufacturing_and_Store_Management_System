@@ -1,0 +1,18 @@
+// Import required modules
+const express=require("express");
+const routerS=express.Router();
+
+// Import Supplier Model
+const Supplier=require("../../models/Inventory/SupplierModel");
+
+// Import Supplier Controller
+const SupplierController=require("../../controllers/Inventory/SupplierControllers");
+
+routerS.get("/",SupplierController.getAllSuppliers);
+routerS.post("/",SupplierController.addSuppliers);
+routerS.get("/:id",SupplierController.getById);
+routerS.put("/:id",SupplierController.updateSupplier);
+routerS.delete("/:id",SupplierController.deleteSupplier);
+
+// Export routerS
+module.exports=routerS;

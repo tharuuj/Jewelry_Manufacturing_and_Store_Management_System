@@ -1,0 +1,92 @@
+// Importing Supplier Model
+const Supplier = require("../../models/Inventory/SupplierModel");
+
+// Retrieve all suppliers
+const getAllSuppliers = async (req, res, next) => {
+    let suppliers;
+    try {
+        suppliers = await Supplier.find();
+    } catch (err) {
+        console.log(err);
+    }
+    // If no suppliers found
+    if (!suppliers) {
+        return res.status(404).json({ Message: "Supplier not found!" });
+    }
+    // Display all suppliers
+    return res.status(200).json({ suppliers });
+};
+
+// Add new suppliers
+const addSuppliers = async (req, res, next) => {
+    const { supplierID, name, nic, email, phone, address, bankdetails, description } = req.body;
+    let suppliers;
+    try {
+        suppliers = new Supplier({ supplierID, name, nic, email, phone, address, bankdetails, description });
+        await suppliers.save();
+    } catch (err) {
+        console.log(err);
+    }
+    // If unable to add suppliers
+    if (!suppliers) {
+        return res.status(404).json({ message: "Unable to add suppliers" });
+    }
+    return res.status(200).json({ suppliers });
+};
+
+// Retrieve supplier by ID
+const getById = async (req, res, next) => {
+    const id = req.params.id;
+    let supplier;
+    try {
+        supplier = await Supplier.findById(id);
+    } catch (err) {
+        console.log(err);
+    }
+    // If supplier not found
+    if (!supplier) {
+        return res.status(404).json({ message: "Supplier not found" });
+    }
+    return res.status(200).json({ supplier });
+};
+
+// Update supplier details
+const updateSupplier = async (req, res, next) => {
+    const id = req.params.id;
+    const { supplierID, name, nic, email, phone, address, bankdetails, description } = req.body;
+    let suppliers;
+    try {
+        suppliers = await Supplier.findByIdAndUpdate(id, { supplierID, name, nic, email, phone, address, bankdetails, description });
+        suppliers = await suppliers.save();
+    } catch (err) {
+        console.log(err);
+    }
+    // If unable to update supplier
+    if (!suppliers) {
+        return res.status(404).json({ message: "Unable to update supplier details" });
+    }
+    return res.status(200).json({ suppliers });
+};
+
+// Delete supplier details
+const deleteSupplier = async (req, res, next) => {
+    const id = req.params.id;
+    let supplier;
+    try {
+        supplier = await Supplier.findByIdAndDelete(id);
+    } catch (err) {
+        console.log(err);
+    }
+    // If unable to delete supplier
+    if (!supplier) {
+        return res.status(404).json({ message: "Unable to delete supplier details" });
+    }
+    return res.status(200).json({ supplier });
+};
+
+// Export functions
+exports.addSuppliers = addSuppliers;
+exports.getAllSuppliers = getAllSuppliers;
+exports.getById = getById;
+exports.updateSupplier = updateSupplier;
+exports.deleteSupplier = deleteSupplier;

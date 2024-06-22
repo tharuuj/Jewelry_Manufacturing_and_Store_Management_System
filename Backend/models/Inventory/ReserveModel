@@ -1,0 +1,40 @@
+// Importing mongoose library for MongoDB operations
+const mongoose = require("mongoose");
+// Getting the Schema class from mongoose
+const Schema = mongoose.Schema;
+
+// Defining the schema for the 'reserve' collection
+const reserveSchema = new Schema({
+  // Unique identifier for each reserve
+  reserveID: {
+    type: String, // Value stored in this field will be a string
+    required: true, // Field is mandatory and must have a value
+  },
+  // Order ID associated with the reserve
+  OrderId: {
+    type: String,
+    required: true,
+  },
+  // Product ID associated with the reserve
+  productID: {
+    type: String,
+    required: true,
+  },
+  // Quantity reserved
+  quantity: {
+    type: Number, // Value stored in this field will be a number
+    required: true,
+  },
+  // Description of the reserve (optional)
+  description: {
+    type: String,
+  },
+  // Status of the reserve
+  status: {
+    type: String,
+    required: true,
+  },
+});
+
+// Creating a model based on the schema and exporting it
+module.exports = mongoose.model("ReserveModel", reserveSchema);

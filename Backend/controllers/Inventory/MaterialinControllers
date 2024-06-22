@@ -1,0 +1,220 @@
+// Importing necessary libraries and models
+const MaterialModel = require("../../models/Inventory/MaterialModel");
+const MaterialinModel=require('../../models/Inventory/MaterialinModel')
+// Retrieve all materialins
+const getAllMaterialins = async (req, res, next) => {
+  let materialins;
+  try {
+    materialins = await MaterialinModel.find();
+  } catch (err) {
+    console.log(err);
+    return res.status(500).json({ message: "Internal server error." });
+  }
+  // If no materialins found
+  if (!materialins) {
+    return res.status(404).json({ Message: "Materialin not found!" });
+  }
+  // Display all materialins
+  return res.status(200).json({ materialins });
+};
+
+// Add new materialins
+const addMaterialins = async (req, res, next) => {
+  const {
+    materialinID,
+    supplierID,
+    date,
+    gold,
+    silver,
+    pladium,
+    platinum,
+    thairuby,
+    burmeseruby,
+    bluesapphire,
+    blooddiamond,
+    regentdiamond,
+    value,
+  } = req.body;
+
+  let materialins;
+  try {
+    // Create a new materialin document
+    const newMaterialin = new MaterialinModel({
+      materialinID,
+      supplierID,
+      date,
+      gold,
+      silver,
+      pladium,
+      platinum,
+      thairuby,
+      burmeseruby,
+      bluesapphire,
+      blooddiamond,
+      regentdiamond,
+      value,
+    });
+
+    // Save the new materialin document
+    materialins = await newMaterialin.save();
+
+    // Update quantities in the material model
+    const materialsToUpdate = [
+      { name: "Gold", quantity: gold },
+      { name: "Silver", quantity: silver },
+      { name: "Pladium", quantity: pladium },
+      { name: "Platinum", quantity: platinum },
+      { name: "Thai Ruby", quantity: thairuby },
+      { name: "Burmese Ruby", quantity: burmeseruby },
+      { name: "Blue Sapphire", quantity: bluesapphire },
+      { name: "Blood Diamond", quantity: blooddiamond },
+      { name: "Regent Diamond", quantity: regentdiamond },
+    ];
+
+    // Loop through materialsToUpdate and update quantities
+    for (const material of materialsToUpdate) {
+      await MaterialModel.findOneAndUpdate(
+        { name: material.name },
+        { $inc: { quantity: material.quantity } }
+      );
+    }
+
+    res
+      .status(201)
+      .json({ message: "Materialin data added successfully.", materialins });
+  } catch (error) {
+    console.error(error);
+    res.status(500).json({ message: "Internal server error." });
+  }
+};
+
+// Retrieve materialin by ID
+const getById = async (req, res, next) => {
+  const id = req.params.id;
+  let materialin;
+  try {
+    materialin = await MaterialinModel.findById(id);
+  } catch (err) {
+    console.log(err);
+    return res.status(500).json({ message: "Internal server error." });
+  }
+  // If materialin not found
+  if (!materialin) {
+    return res.status(404).json({ message: "Materialin not found" });
+  }
+  return res.status(200).json({ materialin });
+};
+
+// Update materialin details
+const updateMaterialin = async (req, res, next) => {
+  const id = req.params.id;
+  const {
+    materialinID,
+    supplierID,
+    date,
+    gold,
+    silver,
+    pladium,
+    platinum,
+    thairuby,
+    burmeseruby,
+    bluesapphire,
+    blooddiamond,
+    regentdiamond,
+    value,
+  } = req.body;
+
+  let materialin;
+  try {
+    // Find the existing materialin document
+    materialin = await MaterialinModel.findById(id);
+
+    // Calculate the difference in quantities
+    const diffGold = gold - materialin.gold;
+    const diffSilver = silver - materialin.silver;
+    const diffPladium = pladium - materialin.pladium;
+    const diffPlatinum = platinum - materialin.platinum;
+    const diffThaiRuby = thairuby - materialin.thairuby;
+    const diffBurmeseRuby = burmeseruby - materialin.burmeseruby;
+    const diffBlueSapphire = bluesapphire - materialin.bluesapphire;
+    const diffBloodDiamond = blooddiamond - materialin.blooddiamond;
+    const diffRegentDiamond = regentdiamond - materialin.regentdiamond;
+
+    // Update the materialin document
+    materialin = await MaterialinModel.findByIdAndUpdate(
+      id,
+      {
+        materialinID,
+        supplierID,
+        date,
+        gold,
+        silver,
+        pladium,
+        platinum,
+        thairuby,
+        burmeseruby,
+        bluesapphire,
+        blooddiamond,
+        regentdiamond,
+        value,
+      },
+      { new: true }
+    );
+
+    // Update quantities in the material model
+    const materialsToUpdate = [
+      { name: "Gold", quantity: diffGold },
+      { name: "Silver", quantity: diffSilver },
+      { name: "Pladium", quantity: diffPladium },
+      { name: "Platinum", quantity: diffPlatinum },
+      { name: "Thai Ruby", quantity: diffThaiRuby },
+      { name: "Burmese Ruby", quantity: diffBurmeseRuby },
+      { name: "Blue Sapphire", quantity: diffBlueSapphire },
+      { name: "Blood Diamond", quantity: diffBloodDiamond },
+      { name: "Regent Diamond", quantity: diffRegentDiamond },
+    ];
+
+    // Loop through materialsToUpdate and update quantities
+    for (const material of materialsToUpdate) {
+      await MaterialModel.findOneAndUpdate(
+        { name: material.name },
+        { $inc: { quantity: material.quantity } }
+      );
+    }
+
+    res
+      .status(200)
+      .json({ message: "Materialin data updated successfully.", materialin });
+  } catch (error) {
+    console.error(error);
+    res.status(500).json({ message: "Internal server error." });
+  }
+};
+
+// Delete materialin details
+const deleteMaterialin = async (req, res, next) => {
+  const id = req.params.id;
+  let materialin;
+  try {
+    materialin = await MaterialinModel.findByIdAndDelete(id);
+  } catch (err) {
+    console.log(err);
+    return res.status(500).json({ message: "Internal server error." });
+  }
+  // If unable to delete materialin
+  if (!materialin) {
+    return res
+      .status(404)
+      .json({ message: "Unable to delete materialin details" });
+  }
+  return res.status(200).json({ materialin });
+};
+
+// Export functions
+module.exports = {
+  getAllMaterialins,
+  addMaterialins,
+  getById,
+  updateMaterialin,
+  deleteMaterialin,
+};

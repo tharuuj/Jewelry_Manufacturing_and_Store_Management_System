@@ -1,0 +1,192 @@
+// Importing Material Model
+const Material = require("../../models/Inventory/MaterialModel");
+
+const nodemailer = require('nodemailer');
+const cron = require('node-cron');
+
+// Create a transporter object
+const transporter = nodemailer.createTransport({
+    host: "sandbox.smtp.mailtrap.io",
+    port: 2525,
+    auth: {
+      user: "a751e1a269597e",
+      pass: "dc4036d04b659b"
+    }
+});
+
+// Function to send email notification
+const sendEmailNotification = (materialName, materialQuantity) => {
+    const mailOptions = {
+        from: 'yourusername@email.com',
+        to: 'your-email@example.com', // Change to your email
+        subject: 'Material Quantity Notification',
+        text: `Dear Admin,\n\nThe quantity of ${materialName} is now ${materialQuantity}. Please restock.\n\nRegards,\nYour App`
+    };
+
+    transporter.sendMail(mailOptions, function(error, info){
+        if (error) {
+            console.error('Error:', error);
+        } else {
+            console.log('Email sent: ' + info.response);
+        }
+    });
+};
+
+// Background job to check material quantity and send email notification if below margin
+const checkMaterialQuantityJob = cron.schedule('* * * * *', async () => {
+  try {
+      const materials = await Material.find();
+
+      materials.forEach(material => {
+          if (material.quantity < material.margin) {
+              sendEmailNotification(material.name, material.quantity);
+          }
+      });
+  } catch (err) {
+      console.error('Error checking material quantity:', err);
+  }
+});
+
+checkMaterialQuantityJob.start(); // Start the cron job
+
+// Get all materials
+const getAllMaterials = async (req, res, next) => {
+  let materials;
+  try {
+    materials = await Material.find();
+  } catch (err) {
+    console.log(err);
+  }
+  // If no materials found
+  if (!materials) {
+    return res.status(404).json({ Message: "Material not found!" });
+  }
+  // Display all materials
+  return res.status(200).json({ materials });
+};
+
+// Add new materials
+const addMaterials = async (req, res, next) => {
+  const {
+    materialID,
+    name,
+    type,
+    grade,
+    supplierID,
+    unit,
+    unitweight,
+    unitcost,
+    quantity,
+    description,
+    margin,
+  } = req.body;
+  let materials;
+  try {
+    materials = new Material({
+      materialID,
+      name,
+      type,
+      grade,
+      supplierID,
+      unit,
+      unitweight,
+      unitcost,
+      quantity,
+      description,
+      margin,
+    });
+    await materials.save();
+  } catch (err) {
+    console.log(err);
+  }
+  // If unable to add materials
+  if (!materials) {
+    return res.status(404).json({ message: "Unable to add materials" });
+  }
+  return res.status(200).json({ materials });
+};
+
+// Get material by ID
+const getById = async (req, res, next) => {
+  const id = req.params.id;
+  let material;
+  try {
+    material = await Material.findById(id);
+  } catch (err) {
+    console.log(err);
+  }
+  // If material not found
+  if (!material) {
+    return res.status(404).json({ message: "Material not found" });
+  }
+  return res.status(200).json({ material });
+};
+
+// Update material details
+const updateMaterial = async (req, res, next) => {
+  const id = req.params.id;
+  const {
+    materialID,
+    name,
+    type,
+    grade,
+    supplierID,
+    unit,
+    unitweight,
+    unitcost,
+    quantity,
+    description,
+    margin,
+  } = req.body;
+  let materials;
+  try {
+    materials = await Material.findByIdAndUpdate(id, {
+      materialID,
+      name,
+      type,
+      grade,
+      supplierID,
+      unit,
+      unitweight,
+      unitcost,
+      quantity,
+      description,
+      margin,
+    });
+    materials = await materials.save();
+  } catch (err) {
+    console.log(err);
+  }
+  // If unable to update material
+  if (!materials) {
+    return res
+      .status(404)
+      .json({ message: "Unable to update material details" });
+  }
+  return res.status(200).json({ materials });
+};
+
+// Delete material details
+const deleteMaterial = async (req, res, next) => {
+  const id = req.params.id;
+  let material;
+  try {
+    material = await Material.findByIdAndDelete(id);
+  } catch (err) {
+    console.log(err);
+  }
+  // If unable to delete material
+  if (!material) {
+    return res
+      .status(404)
+      .json({ message: "Unable to delete material details" });
+  }
+  return res.status(200).json({ material });
+};
+
+// Exporting functions
+exports.addMaterials = addMaterials;
+exports.getAllMaterials = getAllMaterials;
+exports.getById = getById;
+exports.updateMaterial = updateMaterial;
+exports.deleteMaterial = deleteMaterial;

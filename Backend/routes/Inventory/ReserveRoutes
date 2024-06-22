@@ -1,0 +1,18 @@
+// Import required modules
+const express=require("express");
+const routerR=express.Router();
+
+// Import Reserve Model
+const Reserve=require("../../models/Inventory/ReserveModel");
+
+// Import Reserve Controller
+const ReserveController=require("../../controllers/Inventory/ReserveControllers");
+
+routerR.get("/",ReserveController.getAllReserves);
+routerR.post("/",ReserveController.addReserves);
+routerR.get("/:id",ReserveController.getById);
+routerR.put("/:id",ReserveController.updateReserve);
+routerR.delete("/:id",ReserveController.deleteReserve);
+
+// Export routerR
+module.exports=routerR;

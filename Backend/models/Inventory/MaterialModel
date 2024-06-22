@@ -1,0 +1,64 @@
+// Importing mongoose library for MongoDB operations
+const mongoose = require("mongoose");
+// Getting the Schema class from mongoose
+const Schema = mongoose.Schema;
+
+// Defining the schema for the 'material' collection
+const materialSchema = new Schema({
+  // Unique identifier for each material
+  materialID: {
+    type: String, // Value stored in this field will be a string
+    required: true, // Field is mandatory and must have a value
+  },
+  // Name of the material
+  name: {
+    type: String,
+    required: true,
+  },
+  // Type of material
+  type: {
+    type: String,
+    required: true,
+  },
+  // Grade of the material
+  grade: {
+    type: String,
+    required: true,
+  },
+  // SupplierID of the material
+  supplierID: {
+    type: String,
+    required: true,
+  },
+  // Unit of measurement for the material
+  unit: {
+    type: String,
+    required: true,
+  },
+  // Weight of one unit of the material
+  unitweight: {
+    type: Number,
+    required: true,
+  },
+  // Cost of one unit of the material
+  unitcost: {
+    type: Number,
+    required: true,
+  },
+  // Quantity of the material available
+  quantity: {
+    type: Number,
+    required: true,
+  },
+  // Description of the material (optional)
+  description: {
+    type: String,
+  },
+  margin: {
+    type: Number,
+    required: true,
+  },
+});
+
+// Creating a model based on the schema and exporting it
+module.exports = mongoose.model("MaterialModel", materialSchema);

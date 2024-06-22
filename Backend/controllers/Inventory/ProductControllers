@@ -1,0 +1,111 @@
+const Product=require("../Model/ProductModel");
+
+//data display
+const getAllProducts=async(req,res,next)=>{
+    let Products;
+    //Get all products
+    try{
+        products=await Product.find();
+    }catch(err){
+        console.log(err);
+    }
+    //If not found
+    if(!products){
+        return res.status(404).json({Message:"Product not found!"});
+    }
+
+    //Display all products
+    return res.status(200).json({products});
+};
+
+//data insert
+const addProducts=async(req,res,next)=>{
+
+    const{productID,name,price,quantity,description} =req.body;
+
+    let products;
+
+    try{
+        products=new Product({productID,name,price,quantity,description});
+        await products.save();
+    }catch(err){
+        console.log(err);
+    }
+
+    //If not insert data
+    if(!products){
+        return res.status(404).json({message:"unable to add products"});
+    }
+    return res.status(200).json({products});
+};
+
+
+//Get by ID
+const getById=async(req,res,next)=>{
+
+    const id=req.params.id;
+    let product;
+
+    try{
+        product=await Product.findById(id);
+    }catch(err){
+        console.log(err);
+    }
+
+    //If not available data
+    if(!product){
+        return res.status(404).json({message:"product not found"});
+    }
+    return res.status(200).json({product});
+}
+
+//Update product details
+const updateProduct=async(req,res,next)=>{
+
+    const id=req.params.id;
+    const{productID,name,price,quantity,description} =req.body;
+
+    //variable name
+    let products;
+
+    try{
+        products=await Product.findByIdAndUpdate(id,{productID:productID,name:name,price:price,quantity:quantity,description:description});
+        products=await products.save();
+    }catch(err){
+        console.log(err);
+    }
+    //If can't update product
+    if(!products){
+        return res.status(404).json({message:"Unable to update product details"});
+    }
+    return res.status(200).json({products});
+
+}
+
+//Delete product details
+const deleteProduct=async(req,res,next)=>{
+
+    const id=req.params.id;
+
+    let product;
+
+    try{
+        product=await Product.findByIdAndDelete(id);
+    }catch(err){
+        console.log(err);
+    }
+
+    //If can't delete product
+    if(!product){
+        return res.status(404).json({message:"Unable to delete product details"});
+    }
+    return res.status(200).json({product});
+
+}
+
+
+exports.addProducts=addProducts;
+exports.getAllProducts=getAllProducts;
+exports.getById=getById;
+exports.updateProduct=updateProduct;
+exports.deleteProduct=deleteProduct;

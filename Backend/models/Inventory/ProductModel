@@ -1,0 +1,32 @@
+const mongoose=require("mongoose");
+const Schema=mongoose.Schema;
+
+const productSchema=new Schema({
+    productID:{
+        type:String, //data type
+        required:true, //validate
+    },
+    name:{
+        type:String, //data type
+        required:true, //validate
+    },
+    price:{
+        type:Number, //data type
+        required:true, //validate
+    },
+    quantity:{
+        type:Number,
+        required:true,
+    },
+    description:{
+        type:String, //data type
+        required:true, //validate
+    },
+});
+
+module.exports=mongoose.model(
+    "ProductModel", //file name
+     productSchema //function name
+)
+
+ 

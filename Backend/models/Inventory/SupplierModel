@@ -1,0 +1,51 @@
+// Importing mongoose library for MongoDB operations
+const mongoose = require("mongoose");
+// Getting the Schema class from mongoose
+const Schema = mongoose.Schema;
+
+// Defining the schema for the 'supplier' collection
+const supplierSchema = new Schema({
+  // Unique identifier for each supplier
+  supplierID: {
+    type: String, // Value stored in this field will be a string
+    required: true, // Field is mandatory and must have a value
+  },
+  // Name of the supplier
+  name: {
+    type: String,
+    required: true,
+  },
+  // National Identification Card (NIC) of the supplier
+  nic: {
+    type: String,
+    required: true,
+  },
+  // Email address of the supplier
+  email: {
+    type: String,
+    required: true,
+  },
+  // Phone number of the supplier
+  phone: {
+    type: String,
+    required: true,
+  },
+  // Address of the supplier
+  address: {
+    type: String,
+    required: true,
+  },
+  // Bank details of the supplier
+  bankdetails: {
+    type: String,
+    required: true,
+  },
+  // Description of the supplier
+  description: {
+    type: String,
+    required: true,
+  },
+});
+
+// Creating a model based on the schema and exporting it
+module.exports = mongoose.model("SupplierModel", supplierSchema);

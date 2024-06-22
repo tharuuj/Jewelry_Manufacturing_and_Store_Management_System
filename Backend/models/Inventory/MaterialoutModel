@@ -1,0 +1,69 @@
+// Importing mongoose library for MongoDB operations
+const mongoose = require("mongoose");
+// Getting the Schema class from mongoose
+const Schema = mongoose.Schema;
+
+// Defining the schema for the 'materialout' collection
+const materialoutSchema = new Schema({
+  // Unique identifier for each material outward entry
+  materialoutID: {
+    type: String, // Value stored in this field will be a string
+    required: true, // Field is mandatory and must have a value
+  },
+  // Job ID associated with the material outward entry
+  JobId: {
+    type: String,
+    required: true,
+  },
+  // Date of the material outward entry
+  date: {
+    type: String,
+    required: true,
+  },
+  // Quantity of gold issued
+  gold: {
+    type: Number, // Value stored in this field will be a number
+  },
+  // Quantity of silver issued
+  silver: {
+    type: Number,
+  },
+  // Quantity of pladium issued
+  pladium: {
+    type: Number,
+  },
+  // Quantity of platinum issued
+  platinum: {
+    type: Number,
+  },
+  // Quantity of Thai ruby issued
+  thairuby: {
+    type: Number,
+  },
+  // Quantity of Burmese ruby issued
+  burmeseruby: {
+    type: Number,
+  },
+  // Quantity of blue sapphire issued
+  bluesapphire: {
+    type: Number,
+  },
+  
+  // Quantity of blood diamond issued
+  blooddiamond: {
+    type: Number,
+  },
+  
+  // Quantity of regent diamond issued
+  regentdiamond: {
+    type: Number,
+  },
+  
+  // Description of the material outward entry (optional)
+  description: {
+    type: String,
+  },
+});
+
+// Creating a model based on the schema and exporting it
+module.exports = mongoose.model("MaterialoutModel", materialoutSchema);
